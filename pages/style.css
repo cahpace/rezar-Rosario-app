@@ -19,6 +19,8 @@ section {
     width: 100%;
     max-width: 600px;
     border: 1px solid red;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 ul,
@@ -65,4 +67,5 @@ li {
     margin-top: 0.3rem;
     border: 1px solid brown;
     cursor: pointer;
+    margin-right: 1rem;
 }
