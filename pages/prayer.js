@@ -3,20 +3,11 @@ O localStorage salva os dados no formato de string, então se você precisar arm
 é necessário converter para JSON usando JSON.stringify() e, ao recuperar, usar JSON.parse().
 */
 
-//recebe o valor do dia da semana pelo localstorage  
-//puxa de acordo com o dia da semana escolhido
-
-//pega valor do local storage
-//fetch
-//faz switch e puxa dados
 //para achar o valor no objeto, fazer comparação com um pedaço string
 const conts = document.querySelectorAll(".cont");
 const biggerCont = document.querySelectorAll(".biggerCont");
 
-//TODO: uma variavel para a lingua, assim a variavel recebe o valor que o usuario escolheu para a lingua
-
-// const misterio = localStorage.getItem("misterio");
-// console.log(misterio + " " + typeof(misterio));
+//TODO: pensar onde coloca as oraçoes por escrito no terço
 
 fetch('../data.json')
   .then(response => {
@@ -26,47 +17,20 @@ fetch('../data.json')
     return response.json();
   })
   .then(data => {
-    // const textoMisterio = document.querySelectorAll(".textoMisterio");
-    // console.log(textoMisterio);
-    // textoMisterio.textContent = data.pt.misterios.gozosos[0];
-    // console.log(data.pt.misterios.gozosos[0])
 
         const misterio = localStorage.getItem("misterio");
         const language = localStorage.getItem('language');
-        //console.log(misterio)
-        //console.log("teste " + data[language].misterios[misterio])
-        //let nome1 = "misterios";
-        //TODO colocar language ao invez de pt
-        //let um = data.pt.misterios[misterio];
-        let um = data[language].misterios[misterio];
-        //console.log("teste" + um);
-
-        //percorrer o objeto para procurar o misterio
-        // if (data.pt.misterios[gozosos]) {
-            
-        //     data.pt.misterios[gozosos].forEach((item) => {
-        //         console.log(item);
-        //     });
-        // } else {
-        //     console.log(`Chave "${gozosos}" não encontrada no objeto.`);
-        // };
         
-
+        let um = data[language].misterios[misterio];
 
          um.forEach( mist => {
-            console.log(mist);
+            //console.log(mist);
 
             const contas = document.querySelector(".contas");
             criarContasMaiores(contas, mist);
             criarContasMenores(contas);
             
-
-            // const textoMisterio = document.querySelectorAll(".textoMisterio");
-            // textoMisterio.textContent = mist;
-         })
-        
-        //let misteriosDoDia = //filtrar agora o misterio para comparar   
-
+         })  
     });
     
 
@@ -147,10 +111,3 @@ function done(){
         this.setAttribute("data-clicked", "0");
     }   
 }
-
-/*
-misterio_glorioso: domingo, quarta-feira;
-misterio_gozoso: segunda-feira, sabado;
-misterio_doloroso: terça-feira, sexta-feira;
-misterio_luminoso: quinta-feira; 
-*/
